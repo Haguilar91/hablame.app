@@ -1,32 +1,12 @@
 
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
 # hablame.app
+
 App para que psicologos atiendan en linea.
 
+* Ruby version : Ruby 2.6
 
-Ruby 2.6
-Rails 6.0
+* Rails Version : Rails 6.0
+
+* DB : Maria DB 10.4
+
+
