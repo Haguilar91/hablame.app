@@ -1,27 +1,27 @@
 development:
   adapter: mysql2
-  host: mariadbtest2
+  host: 0.0.0.0
   encoding: utf8mb4
   reconnect: true
   database: hablameapp
   pool: 5
   username: root
-  password: Honduras2016FTW
+  password: wO^g8J!9yHNg
 test:
   adapter: mysql2
   encoding: utf8mb4
-  host: mariadbtest2
+  host: 0.0.0.0
   reconnect: true
   database: hablameapp
   pool: 5
   username: root
-  password: Honduras2016FTW
+  password: wO^g8J!9yHNg
 production:
   adapter: mysql2
   encoding: utf8mb4
   reconnect: true
-  host: mariadbtest2
+  host: 0.0.0.0
   database: hablameappproduction
   pool: 5
   username: root
-  password: Honduras2016FTW
+  password: wO^g8J!9yHNg
