@@ -1,0 +1,2 @@
+class Psychologist < ApplicationRecord
+end

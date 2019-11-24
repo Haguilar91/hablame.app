@@ -1,0 +1,65 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Psychologists</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_psychologist_path, class: 'btn btn-primary' do %>
+    Add New Psychologist
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Status</th>
+            <th>Collegiate</th>
+            <th>College</th>
+            <th>Description</th>
+            <th>Curriculum</th>
+            <th>Photo</th>
+            <th>Is approved</th>
+            <th>Is active</th>
+            <th>Tags</th>
+            <th>Office address</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @psychologists.each do |psychologist| %>
+        <%= content_tag :tr, id: dom_id(psychologist), class: dom_class(psychologist) do %>
+          
+
+                      <td><%= psychologist.first_name %></td>
+                      <td><%= psychologist.last_name %></td>
+                      <td><%= psychologist.status %></td>
+                      <td><%= psychologist.collegiate_id %></td>
+                      <td><%= psychologist.college %></td>
+                      <td><%= psychologist.description %></td>
+                      <td><%= psychologist.curriculum %></td>
+                      <td><%= psychologist.photo %></td>
+                      <td><%= psychologist.is_approved %></td>
+                      <td><%= psychologist.is_active %></td>
+                      <td><%= psychologist.tags %></td>
+                      <td><%= psychologist.office_address %></td>
+          
+          
+            <td><%= link_to 'Show', psychologist %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

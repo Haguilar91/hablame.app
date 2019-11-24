@@ -1,6 +1,6 @@
 development:
   adapter: mysql2
-  host: database-1.cd33v3wybdb3.us-east-2.rds.amazonaws.com
+  host: 0.0.0.0 
   encoding: utf8mb4
   reconnect: true
   database: hablameapp
@@ -10,7 +10,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8mb4
-  host: database-1.cd33v3wybdb3.us-east-2.rds.amazonaws.com
+  host: 0.0.0.0
   reconnect: true
   database: hablameapp
   pool: 5
@@ -20,7 +20,7 @@ production:
   adapter: mysql2
   encoding: utf8mb4
   reconnect: true
-  host: database-1.cd33v3wybdb3.us-east-2.rds.amazonaws.com
+  host: 0.0.0.0
   database: hablameappproduction
   pool: 5
   username: root

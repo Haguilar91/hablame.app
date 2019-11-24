@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_03_062534) do
+ActiveRecord::Schema.define(version: 2019_11_24_053429) do
 
   create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "published_at"
@@ -39,6 +39,23 @@ ActiveRecord::Schema.define(version: 2019_11_03_062534) do
     t.string "action"
     t.bigint "notifiable_id"
     t.string "notifiable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "psychologists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "status"
+    t.string "collegiate_id"
+    t.string "college"
+    t.text "description"
+    t.string "curriculum"
+    t.string "photo"
+    t.integer "is_approved"
+    t.integer "is_active"
+    t.string "tags"
+    t.string "office_address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

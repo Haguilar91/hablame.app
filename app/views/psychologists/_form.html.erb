@@ -1,0 +1,70 @@
+<%= form_with(model: psychologist, local: true) do |form| %>
+  <% if psychologist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(psychologist.errors.count, "error") %> prohibited this psychologist from being saved:</h2>
+
+      <ul>
+      <% psychologist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :first_name %>
+    <%= form.text_field "Nombre.", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :last_name %>
+    <%= form.text_field "Apellido.", class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :collegiate_id %>
+    <%= form.text_field "Numero de colegiación.", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :college %>
+    <%= form.text_field "Universidad de la que se graduo.", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area "Descripcion suya como profesional.", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :curriculum %>
+    <%= form.text_field "Suba su curriclum", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :photo %>
+    <%= form.text_field "Suba su foto", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :office_address %>
+    <%= form.text_field "Dirección de su consultorio (si lo tiene)", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if psychologist.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', psychologist, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if psychologist.persisted? %>
+      <%= link_to "Cancel", psychologist, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", psychologists_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
