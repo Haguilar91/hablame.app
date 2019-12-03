@@ -1,0 +1,10 @@
+<h1>Chats</h1>
+<div id="msg">
+</div>
+
+
+<%= form_for @chat, remote: true do |f| %>
+  <%= f.text_field :message %>
+  <%= f.submit %>
+<% end %>
+
