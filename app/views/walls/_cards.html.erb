@@ -1,33 +1,22 @@
 <div class="card block animated fadeInDown" style="background-color:#FFEFD5">
 	<div class="product">
-		<span class="badge badge-success badge-pill float-right ch-state"><%= doctor.name %></span>
+		<span class="badge badge-success badge-pill float-right ch-state"><%= doctor.name.full %></span>
 		<%= gravatar_tag @doctor %> 
 	</div>
 
 	<div class="info" >
-		<h4><%= item.nombre %></h4>
+		<h4><%= doctor.name %></h4>
 
 	
 		<span class="description"  >
 
-			<p><%= doctor.description %>
-			aaaaaa aaaaa aaaaaa  aaaaa
-			aaaaaa aaaaa aaaaaa  aaaaa
-			aaaaaa aaaaa aaaaaa  aaaaa
-			aaaaaa aaaaa aaaaaa  aaaaa
-			aaaaaa aaaaa aaaaaa  aaaaa</p>
+			<p><%= doctor.description %></p>
 		</span>
-		<span class="price"><%= number_to_currency(item.price, unit: 'L.') %></span>
-		<a class="btn btn-danger btn-block"  style="background-color:#e27d60" href="/garaje/items/<%= item.id.to_s %>"><i class="fa fa-eye"></i> VER PRODUCTO</a>
+		<a class="btn btn-danger btn-block"  style="background-color:#e27d60" href="/chat/<%doctor.id.to_s %>"><i class="fa fa-eye"></i>CHATEAR</a>
 	</div>
 
 	<div class="details">
-		<% @seller = User.find_by_email(item.usuario_actual) %>
-		<a href="/garaje/ <%= @seller.id_and_name %>">
-			<img src="<%= @seller.get_avatar() %>" class="seller-avatar" width="25" height="25">
-			<span class="seller-name"><%= @seller.nombre %> <%= @seller.apellido %></span>
-			<small class="seller-email"><%= @seller.username %></small>
-		</a>
+		<p>test</p>
 	</div>
 
 
