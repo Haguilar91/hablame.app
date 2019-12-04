@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient: 1
+  psychologist: 1
+
+two:
+  patient: 1
+  psychologist: 1
