@@ -1,0 +1,20 @@
+<div class="jumbotron">
+Bienvenido &nbsp; <%=current_user.username%>
+<div class="row"><!--Body-->
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        <div class="card-columns container" >
+
+            <% @doctors.each do |doctor|%>
+
+                        <%= render '/walls/cards', doctor: doctor%>
+
+            <%end%>
+        </div>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+</div>
+</div>
