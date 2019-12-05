@@ -26,11 +26,11 @@ Rails.application.routes.draw do
       mount Sidekiq::Web => '/sidekiq'
     end
 
-
+  resources :walls
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
   resources :chats, only: [:new, :create, :index]
   #devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
-  root to: 'home#index'
+  root :to  => 'welcome#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
