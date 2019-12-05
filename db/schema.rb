@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_042713) do
+ActiveRecord::Schema.define(version: 2019_12_05_213120) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -60,13 +60,13 @@ ActiveRecord::Schema.define(version: 2019_12_05_042713) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "curriculum_path", null: false
-    t.string "college", null: false
-    t.string "collegiate_id", null: false
-    t.integer "is_active", null: false
-    t.integer "is_approved", null: false
-    t.integer "is_pending", null: false
-    t.date "birthday", null: false
+    t.string "curriculum_path"
+    t.string "college"
+    t.string "collegiate_id"
+    t.integer "is_active"
+    t.integer "is_approved"
+    t.integer "is_pending"
+    t.date "birthday"
     t.text "description"
     t.index ["email"], name: "index_doctors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true
@@ -81,6 +81,60 @@ ActiveRecord::Schema.define(version: 2019_12_05_042713) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, length: { slug: 70, scope: 70 }
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", length: { slug: 140 }
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "mailboxer_conversation_opt_outs", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "unsubscriber_type"
+    t.integer "unsubscriber_id"
+    t.integer "conversation_id"
+    t.index ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id"
+    t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type"
+  end
+
+  create_table "mailboxer_conversations", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "subject", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mailboxer_notifications", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "type"
+    t.text "body"
+    t.string "subject", default: ""
+    t.string "sender_type"
+    t.integer "sender_id"
+    t.integer "conversation_id"
+    t.boolean "draft", default: false
+    t.string "notification_code"
+    t.string "notified_object_type"
+    t.integer "notified_object_id"
+    t.string "attachment"
+    t.datetime "updated_at", null: false
+    t.datetime "created_at", null: false
+    t.boolean "global", default: false
+    t.datetime "expires"
+    t.index ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id"
+    t.index ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type"
+    t.index ["notified_object_type", "notified_object_id"], name: "mailboxer_notifications_notified_object"
+    t.index ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type"
+    t.index ["type"], name: "index_mailboxer_notifications_on_type"
+  end
+
+  create_table "mailboxer_receipts", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "receiver_type"
+    t.integer "receiver_id"
+    t.integer "notification_id", null: false
+    t.boolean "is_read", default: false
+    t.boolean "trashed", default: false
+    t.boolean "deleted", default: false
+    t.string "mailbox_type", limit: 25
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "is_delivered", default: false
+    t.string "delivery_method"
+    t.string "message_id"
+    t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
+    t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -151,5 +205,8 @@ ActiveRecord::Schema.define(version: 2019_12_05_042713) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
+  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
+  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "services", "users"
 end
