@@ -11,14 +11,16 @@ before_action :authenticate_member!
 
 
     @conversation = current_member.mailbox.conversations.find(params[:id])
+    @user = User.find_by_id(@conversation.participants.find { |p| p != current_doctor })
+  
    end
 
    def new
       @recipients = Doctor.find_by_id(params[:doctor_id])
       recipient = Doctor.find(params[:doctor_id])
+      
 
-
-      #@recipients = Doctor.all
+    
    end
 
    def create

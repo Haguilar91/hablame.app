@@ -20,3 +20,10 @@
 body > .alert {
   margin-bottom: 0;
 }
+
+.scrolleame {
+  height:20em;
+	border-radius: 15px;
+    border: 2px solid #bdbdbd;
+  overflow-y: scroll;
+}

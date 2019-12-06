@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class PsychologistDashboard < Administrate::BaseDashboard
+class DoctorDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,20 +9,19 @@ class PsychologistDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    first_name: Field::String,
-    last_name: Field::String,
-    status: Field::Number,
-    collegiate_id: Field::String,
-    college: Field::String,
-    description: Field::Text,
-    curriculum: Field::String,
-    photo: Field::String,
-    is_approved: Field::Number,
-    is_active: Field::Number,
-    tags: Field::String,
-    office_address: Field::String,
+    email: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    first_name: Field::String,
+    last_name: Field::String,
+    curriculum_path: Field::String,
+    college: Field::String,
+    collegiate_id: Field::String,
+    is_active: Field::Number,
+    is_approved: Field::Number,
+    is_pending: Field::Number,
+    birthday: Field::DateTime,
+    description: Field::Text,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -32,47 +31,45 @@ class PsychologistDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
   id
+  email
   first_name
   last_name
-  status
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
   id
-  first_name
-  last_name
-  status
-  collegiate_id
-  college
-  description
-  curriculum
-  photo
-  is_approved
-  is_active
-  tags
-  office_address
+  email
   created_at
   updated_at
+  first_name
+  last_name
+  curriculum_path
+  college
+  collegiate_id
+  is_active
+  is_approved
+  is_pending
+  birthday
+  description
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+  email
   first_name
   last_name
-  status
-  collegiate_id
+  curriculum_path
   college
-  description
-  curriculum
-  photo
-  is_approved
+  collegiate_id
   is_active
-  tags
-  office_address
+  is_approved
+  is_pending
+  birthday
+  description
   ].freeze
 
   # COLLECTION_FILTERS
@@ -87,10 +84,10 @@ class PsychologistDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how psychologists are displayed
+  # Overwrite this method to customize how doctors are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(psychologist)
-  #   "Psychologist ##{psychologist.id}"
+  # def display_resource(doctor)
+  #   "Doctor ##{doctor.id}"
   # end
 end

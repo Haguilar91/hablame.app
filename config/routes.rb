@@ -148,6 +148,8 @@ Rails.application.routes.draw do
   resources :rooms
 
   namespace :admin do
+
+    resources :doctors
     resources :users
     resources :announcements
     resources :services
@@ -163,7 +165,6 @@ Rails.application.routes.draw do
   resources :walls
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
-  resources :chats, only: [:new, :create, :index]
   resources :conversations do
     resources :messages
   end

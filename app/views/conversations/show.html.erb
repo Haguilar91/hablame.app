@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-md-1">
                     </div>
-                    <div class="col-md-4">
+                    <div class="container">
                         <!--Chat va aqui-->
                         <div class="form-group">
                                 
@@ -35,9 +35,9 @@
                              </div>
                              <hr>
                              <%= form_tag conversation_messages_path(@conversation), method: :post do%>
-                                        <div>
-                                                <%= text_area_tag :body,nil, class: "form-control-lg", id:"sample5", placeholder: "Introduce un mensaje..." %>
-                                        </div class="col-lg-10">
+                                        <div class="container-fluid ">
+                                                <%= text_area_tag :body,nil, class: "form-control-lg", id:"sample5", placeholder: "Introduce un mensaje...", :rows => 10, style: 'width:100%;' %>
+                                        </div >
                                         <button class="btn btn-outline-success bg-dark" id="tte">
                                                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                           &nbsp; Enviar
@@ -47,12 +47,26 @@
 
                         <!--Chat termina aqui-->
                     </div>
+                    <% if current_doctor %>
                     <div class="col-md-6">
                         <!--Ficha va aqui-->
+                            <div class="jumbotron">
+                                <h1>Informacion de Paciente</h1>
+                                <p>Edad: <%=recipient.age%></p>
+                                <p>Resumen del paciente: </p>
+                                <p><%=recipient.username%></p>
+                                <p> Ingresar notas: </p>
 
+                                <%= form_for(@user, url: edit_user_path, method: :get) do |f| %>
+                                    <%= f.label :body %>
+                                    <%= f.rich_text_area :body, class: 'form-control' %>
+                                <% end %>
+                                
+                            </div>
 
                         <!--Ficha termina aqui-->
                     </div>
+                    <%end%>
                     <div class="col-md-1">
                     </div>
                 </div>
