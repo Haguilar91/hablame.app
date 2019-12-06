@@ -24,7 +24,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
 
   has_person_name
-
+  acts_as_messageable
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
   has_many :rooms

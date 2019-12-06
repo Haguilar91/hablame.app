@@ -27,7 +27,7 @@ gem 'simple_form'
 gem  'figaro'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'mailboxer'
+gem 'mailboxer', github: 'mailboxer/mailboxer'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

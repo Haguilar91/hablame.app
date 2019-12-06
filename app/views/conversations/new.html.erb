@@ -1,0 +1,17 @@
+<h1> Nuevo Mensaje </h1>
+
+<%= form_tag conversation_path, method: :post do%>
+<div>
+<%= select_tag :doctor_id, options_from_collections_for_select(Doctor.all, :id, :name) %>
+</div>
+
+<div>
+<%=text_field_tag :subject, placeholder:"Asunto" %>
+</div>
+
+<div>
+<%=text_area_tag :body, placeholder:"Escribe tu mensaje"%>
+
+<%= submit_tag %>
+</div>
+

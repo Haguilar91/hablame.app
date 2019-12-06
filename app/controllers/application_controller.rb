@@ -17,4 +17,14 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = I18n.default_locale
   end
+
+      devise_group :member, contains: [:user, :doctor]
+
+    private
+
+    def pundit_user
+        # Make Pundit to use whichever Devise model [Organizer, Sponsor, User] as the 'current_user'
+        # Just by using the offered helper method from Devise, 'devise_group' feature
+        current_member
+    end
 end

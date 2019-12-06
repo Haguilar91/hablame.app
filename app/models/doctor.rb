@@ -29,4 +29,5 @@ class Doctor < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :rooms
   has_person_name
+  acts_as_messageable
 end

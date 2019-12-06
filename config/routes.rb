@@ -130,6 +130,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+
+   root :to  => 'welcome#index'
   devise_for :doctors, path: 'doctors', controllers:{
     sessions: 'doctors/sessions'
     #omniauth_callbacks: "users/omniauth_callbacks"
@@ -139,10 +141,13 @@ Rails.application.routes.draw do
     #omniauth_callbacks: "users/omniauth_callbacks"
   }
 
+
+
+
+
   resources :rooms
-  resources :psychologists
+
   namespace :admin do
-    resources :psychologists
     resources :users
     resources :announcements
     resources :services
@@ -159,7 +164,10 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
   resources :chats, only: [:new, :create, :index]
+  resources :conversations do
+    resources :messages
+  end
   #devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
-  root :to  => 'welcome#index'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
