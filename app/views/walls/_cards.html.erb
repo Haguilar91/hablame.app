@@ -1,23 +1,14 @@
-<div class="card block animated fadeInDown" style="background-color:#FFEFD5">
-	<div class="product">
-		<span class="badge badge-success badge-pill float-right ch-state"><%= doctor.name.full %></span>
-		<%= gravatar_tag @doctor %> 
-	</div>
 
-	<div class="info" >
-		<h4><%= doctor.name %></h4>
-
-	
-		<span class="description"  >
-
-			<p><%= doctor.description %></p>
-		</span>
-		<a class="btn btn-danger btn-block"  style="background-color:#e27d60" href="/chat/<%doctor.id.to_s %>"><i class="fa fa-eye"></i>CHATEAR</a>
-	</div>
-
-	<div class="details">
-		<p>test</p>
-	</div>
+<div class="card animated fadeInDown" style="width: 18rem;">
+		<div class="card-body">
+		  <h5 class="card-title">Lic.<%=doctor.name.full%></h5>
+		  <%= gravatar_tag @doctor ,:circle, :size => 150, :html => { :class => "img img-fluid card-header" }  %>
+	  <hr>
+		  <h6 class="card-subtitle mb-2 text-muted">Universidad:  <%= doctor.college %></h6>
+		  <p class="card-text"><%= doctor.description %></p>
+		  <%= link_to "Enviar Mensaje", new_conversation_path(:doctor_id => doctor.id), class: 'btn btn-primary' %>
 
 
-</div>
+		  
+		</div>
+	  </div>

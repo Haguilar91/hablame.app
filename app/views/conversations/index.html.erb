@@ -1,9 +1,21 @@
-<h1>All Conversations</h1>
+<div class="jumbotron bg-dark">
+  <h4 class="title" style="color:white;"><i class="fa fa-inbox" aria-hidden="true"></i> &nbsp; Conversaciones/Bandeja de Entrada</h4>
+</div>
+
 
 <% @conversations.each do |conversation| %>
-  <div>
-    <%= link_to conversation.subject, conversation_path(conversation) %>
+<% @recipient = conversation.participants.find { |p| p != current_member } %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%=conversation.subject%></h5>
+    <%= gravatar_tag @recipient.email,:circle, :size => 150, :html => { :class => "img img-fluid card-header" }  %>
+<hr>
+    <h6 class="card-subtitle mb-2 text-muted">Con: Lic. <%= @recipient.name %></h6>
+    <hr>
+    <%= link_to "Ver mensajes", conversation_path(conversation), class: 'btn btn-primary' %>
+    
   </div>
+</div>
+    
 <% end %>
 
-<%= link_to "New Conversation", new_conversation_path %>
