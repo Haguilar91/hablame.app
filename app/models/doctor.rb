@@ -30,4 +30,13 @@ class Doctor < ApplicationRecord
   has_many :rooms
   has_person_name
   acts_as_messageable
+
+  def mailboxer_email(object)
+
+    if object.class==Mailboxer::Notification
+      return nil
+    else
+      email
+    end
+ end
 end

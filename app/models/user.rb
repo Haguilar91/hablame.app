@@ -28,4 +28,14 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
   has_many :rooms
+
+  def mailboxer_email(object)
+
+    if object.class==Mailboxer::Notification
+      return nil
+    else
+      email
+    end
+ end
+ 
 end

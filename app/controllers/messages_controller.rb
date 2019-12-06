@@ -3,13 +3,18 @@ class MessagesController < ApplicationController
 
  def create
     receipt = current_member.reply_to_conversation(@conversation,params[:body])
-redirect_to conversation_path(receipt.conversation)
+    if receipt.save
+       ActionCable.server.broadcast "room_channel",
+                                      content: receipt.message.body
+  else
+  end
+    redirect_to conversation_path(receipt.conversation)
  end
 
  private
 
  def set_conversation
-    @conversation = current_member.mailbox.conversation.find(params[:conversation_id])
+    @conversation = current_member.mailbox.conversations.find(params[:conversation_id])
  end
 
 end

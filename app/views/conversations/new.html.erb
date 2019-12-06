@@ -1,17 +1,18 @@
-<h1> Nuevo Mensaje </h1>
+<h1>New Conversation</h1>
 
-<%= form_tag conversation_path, method: :post do%>
-<div>
-<%= select_tag :doctor_id, options_from_collections_for_select(Doctor.all, :id, :name) %>
-</div>
+<%= form_tag conversations_path, method: :post do %>
+  <div>
+    <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %>
+  </div>
 
-<div>
-<%=text_field_tag :subject, placeholder:"Asunto" %>
-</div>
+  <div>
+    <%= text_field_tag :subject, nil, placeholder: "Asunto" %>
+  </div>
 
-<div>
-<%=text_area_tag :body, placeholder:"Escribe tu mensaje"%>
+  <div>
+    <%= text_area_tag :body, nil, placeholder: "Manda tu mensaje" %>
+  </div>
 
-<%= submit_tag %>
-</div>
+  <%= submit_tag %>
+<% end %>
 
