@@ -1,10 +1,10 @@
 <h1><%=@conversation.subject %></h1>
 <% @conversation.receipts_for(current_member).each do |receipt|%>
     <p><%= receipt.message.sender.name%> dijo: &nbsp; <%= receipt.message.body%></p>
-    <div id="msg">
-       
-    </div>
 <%end%>
+<div id="msg">
+       
+</div>
 
 <%= form_tag conversation_messages_path(@conversation), method: :post do%>
 <div>
