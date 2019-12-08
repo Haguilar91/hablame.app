@@ -33,6 +33,9 @@
           <% end %>
          </li>
 <%if current_user %>
+
+        <li class="nav-item"><%= link_to "Conversaciones", conversations_path, class: "nav-link" %></li>
+
           <li class="nav-item dropdown">
             <%= link_to "#", id: "navbar-dropdown", class: "nav-link dropdown-toggle", data: { target: "nav-account-dropdown", toggle: "dropdown" }, aria: { haspopup: true, expanded: false } do %>
               <%= image_tag gravatar_image_url(current_user.email, size: 40), height: 20, width: 20, class: "rounded" %>
@@ -46,7 +49,9 @@
               <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
-<%else%>
+<%elsif current_doctor%>
+        <li class="nav-item"><%= link_to "Conversaciones", conversations_path, class: "nav-link" %></li>
+
       <li class="nav-item dropdown">
             <%= link_to "#", id: "navbar-dropdown", class: "nav-link dropdown-toggle", data: { target: "nav-account-dropdown", toggle: "dropdown" }, aria: { haspopup: true, expanded: false } do %>
               <%= image_tag gravatar_image_url(current_doctor.email, size: 40), height: 20, width: 20, class: "rounded" %>

@@ -3,19 +3,20 @@
 </div>
 
 
+<div class="card-columns  animated fadeInDown">
 <% @conversations.each do |conversation| %>
 <% @recipient = conversation.participants.find { |p| p != current_member } %>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title"><%=conversation.subject%></h5>
-    <%= gravatar_tag @recipient.email,:circle, :size => 150, :html => { :class => "img img-fluid card-header" }  %>
+      <h5 class="card-title"><%=conversation.subject%></h5>
+      <%= gravatar_tag @recipient.email,:circle, :size => 150, :html => { :class => "img img-fluid card-header" }  %>
 <hr>
-    <h6 class="card-subtitle mb-2 text-muted">Con: Lic. <%= @recipient.name %></h6>
+    <h6 class="card-subtitle mb-2 text-muted">Con: Lic.&nbsp; <%= @recipient.name %></h6>
     <hr>
     <%= link_to "Ver mensajes", conversation_path(conversation), class: 'btn btn-primary' %>
     
   </div>
 </div>
-    
 <% end %>
+</div>  
 
