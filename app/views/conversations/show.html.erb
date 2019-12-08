@@ -57,10 +57,7 @@
                                 <p><%=recipient.username%></p>
                                 <p> Ingresar notas: </p>
 
-                                <%= form_for(@user, url: edit_user_path, method: :get) do |f| %>
-                                    <%= f.label :body %>
-                                    <%= f.rich_text_area :body, class: 'form-control' %>
-                                <% end %>
+                                
                                 
                             </div>
 
