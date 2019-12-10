@@ -17,15 +17,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-1">
+                    <div class="col-md-1" style="background-color:blue;">
                     </div>
-                    <div class="container">
+                    <div class="col-md-5" style="background-color:red;">
                         <!--Chat va aqui-->
                         <div class="form-group">
                                 
                                 <div class="scrolleame bg-light">
+                                    <section>
                                      <% @conversation.receipts_for(current_member).each do |receipt|%>
-                                        <section>
+                                        
                                             <p><%= receipt.message.sender.name%> dijo: &nbsp; <%= receipt.message.body%></p>
                                     <%end%>
                                     <div id="msg">
@@ -47,24 +48,12 @@
 
                         <!--Chat termina aqui-->
                     </div>
-                    <% if current_doctor %>
-                    <div class="col-md-6">
-                        <!--Ficha va aqui-->
-                            <div class="jumbotron">
-                                <h1>Informacion de Paciente</h1>
-                                <p>Edad: <%=recipient.age%></p>
-                                <p>Resumen del paciente: </p>
-                                <p><%=recipient.username%></p>
-                                <p> Ingresar notas: </p>
-
-                                
-                                
-                            </div>
-
-                        <!--Ficha termina aqui-->
                     </div>
-                    <%end%>
-                    <div class="col-md-1">
+                        <div class="col col-md-4" style="background-color:blueviolet;">
+                                <%= render "walls/notes.html.erb"%>
+                        </div>
+
+                    <div class="col col-md-1" style="background-color:yellow;">
                     </div>
                 </div>
             </div>
