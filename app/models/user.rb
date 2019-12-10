@@ -27,7 +27,7 @@ class User < ApplicationRecord
   acts_as_messageable
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
-  has_rich_text :body
+ 
 
   def mailboxer_email(object)
 

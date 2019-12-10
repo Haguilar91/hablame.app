@@ -29,6 +29,7 @@ class Doctor < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_person_name
   acts_as_messageable
+  has_many :notes
 
   def mailboxer_email(object)
 

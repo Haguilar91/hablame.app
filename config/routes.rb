@@ -131,6 +131,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  resources :notes
    root :to  => 'welcome#index'
   devise_for :doctors, path: 'doctors', controllers:{
     sessions: 'doctors/sessions'
