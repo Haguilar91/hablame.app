@@ -147,7 +147,9 @@ Rails.application.routes.draw do
 
 
   resources :rooms
-
+  resources :doctors
+  resources :users
+  
   namespace :admin do
 
     resources :doctors
