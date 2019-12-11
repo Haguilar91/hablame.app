@@ -8,21 +8,18 @@
             <p>Resumen del paciente: </p>
             <p><%=@user.username%></p>
             <p> Ingresar notas: </p>
-
             <%=conversation.id%>
-
-       
-
-            
         </div>
 
-        <div class="container">
-            <%= form_with model: @note, url: notes_path,:method => :POST,  local: true do |f| %>
+ 
+
+        <%= form_for @note, remote: true do |f| %>
+            <%= f.hidden_field(:doctor_id, :value =>  current_doctor.id)%>
+            <%= f.hidden_field(:user_id,  :value => @user.id)%>
             <%= f.rich_text_area :body %>
-            <%= f.submit%>
-           
-        <% end %>
-        </div>
+            <%= f.submit "Guardar Nota" %>
+       <% end %>
+
 
     <!--Ficha termina aqui-->
 <%end%>

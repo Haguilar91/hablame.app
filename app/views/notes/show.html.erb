@@ -1,0 +1,22 @@
+<div class="page-header">
+  <%= link_to notes_path, class: 'btn btn-default' do %>
+    All Notes
+  <% end %>
+  <%= link_to edit_note_path(@note), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show note</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @note.title %></dd>
+
+  <dt>User:</dt>
+  <dd><%= @note.user_id %></dd>
+
+  <dt>Nota</dt>
+    <dd><%= @note.body %></dd>
+  </div>
+
+</dl>
