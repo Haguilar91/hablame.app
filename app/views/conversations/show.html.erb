@@ -49,10 +49,11 @@
                         <!--Chat termina aqui-->
                     </div>
                     </div>
+			<% if current_doctor%>
                         <div class="col col-md-4" style="background-color:blueviolet;">
                                 <%= render "walls/notes.html.erb"%>
                         </div>
-
+			<%end%>
                     <div class="col col-md-1" style="background-color:yellow;">
                     </div>
                 </div>

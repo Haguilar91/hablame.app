@@ -23,18 +23,18 @@ class NotesController < ApplicationController
 
   # POST /notes
   # POST /notes.json
+
   def create
+if (current_doctor)
     @note = Note.new(note_params)
     @note.save
     respond_to do |format|
-     
         format.html { redirect :back }
         format.js 
-  
+     end
+end 
+end
 
-    end
-    debug @note 
-  end
 
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json

@@ -158,6 +158,23 @@ ActiveRecord::Schema.define(version: 2019_12_11_171457) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "psychologists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "status"
+    t.string "collegiate_id"
+    t.string "college"
+    t.text "description"
+    t.string "curriculum"
+    t.string "photo"
+    t.integer "is_approved"
+    t.integer "is_active"
+    t.string "tags"
+    t.string "office_address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "services", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "provider"
@@ -192,8 +209,6 @@ ActiveRecord::Schema.define(version: 2019_12_11_171457) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "services", "users"

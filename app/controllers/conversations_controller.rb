@@ -13,12 +13,13 @@ before_action :authenticate_member!
     @conversation = current_member.mailbox.conversations.find(params[:id])
     @user = User.find_by_id(@conversation.participants.find { |p| p != current_doctor })
 
+if (current_doctor)
     if(Note.find_by user_id: @user.id)
       @note=Note.find_by user_id: @user.id
     else
       @note=Note.new
     end
-
+end
       
   
    end
