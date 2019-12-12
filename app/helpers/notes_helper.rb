@@ -1,2 +1,1 @@
-module NotesHelper
-end
+module NotesHelper; end

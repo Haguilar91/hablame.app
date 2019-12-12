@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class DoctorDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -21,7 +21,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     is_approved: Field::Number,
     is_pending: Field::Number,
     birthday: Field::DateTime,
-    description: Field::Text,
+    description: Field::Text
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -29,47 +29,42 @@ class DoctorDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = %i[
-  id
-  email
-  first_name
-  last_name
-  ].freeze
+  COLLECTION_ATTRIBUTES = %i[id email first_name last_name].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  id
-  email
-  created_at
-  updated_at
-  first_name
-  last_name
-  curriculum_path
-  college
-  collegiate_id
-  is_active
-  is_approved
-  is_pending
-  birthday
-  description
+    id
+    email
+    created_at
+    updated_at
+    first_name
+    last_name
+    curriculum_path
+    college
+    collegiate_id
+    is_active
+    is_approved
+    is_pending
+    birthday
+    description
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  email
-  first_name
-  last_name
-  curriculum_path
-  college
-  collegiate_id
-  is_active
-  is_approved
-  is_pending
-  birthday
-  description
+    email
+    first_name
+    last_name
+    curriculum_path
+    college
+    collegiate_id
+    is_active
+    is_approved
+    is_pending
+    birthday
+    description
   ].freeze
 
   # COLLECTION_FILTERS

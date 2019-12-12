@@ -17,7 +17,10 @@ module Hablame
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-    config.cache_store = :redis_store, "redis://redis_server:6379/0/cache", { expires_in: 90.minutes }
+    config.cache_store =
+      :redis_store,
+      'redis://redis_server:6379/0/cache',
+      { expires_in: 90.minutes }
     config.i18n.default_locale = :'es'
 
     # Settings in config/environments/* take precedence over those specified here.

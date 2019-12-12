@@ -25,18 +25,20 @@
 class Doctor < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable
   has_person_name
   acts_as_messageable
   has_many :notes
 
   def mailboxer_email(object)
-
-    if object.class==Mailboxer::Notification
+    if object.class == Mailboxer::Notification
       return nil
     else
       email
     end
- end
+  end
 end

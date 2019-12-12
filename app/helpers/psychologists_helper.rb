@@ -1,2 +1,1 @@
-module PsychologistsHelper
-end
+module PsychologistsHelper; end

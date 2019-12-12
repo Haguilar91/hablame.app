@@ -1,24 +1,12 @@
 <% if current_doctor %>
     <!--Ficha va aqui-->
-    <%conversation = current_member.mailbox.conversations.find(params[:id])%>
-
-        <div class="jumbotron">
-            <h1>Informacion de Paciente</h1>
-            <p>Edad: <%=@user.age%></p>
-            <p>Resumen del paciente: </p>
-            <p><%=@user.username%></p>
-            <p> Ingresar notas: </p>
-            <%=conversation.id%>
-        </div>
-
  
 <div class="form-group">
         <%= form_for @note, remote: true do |f| %>
-            <%= f.submit "Guardar Nota" , :class => "btn btn-primary" %>
             <%= f.hidden_field(:doctor_id, :value =>  current_doctor.id)%>
             <%= f.hidden_field(:user_id,  :value => @user.id)%>
             <%= f.rich_text_area :body %>
-            
+            <%= f.submit 'Guardar',   :class => "btn btn-primary " %>
        <% end %>
     
 </div>

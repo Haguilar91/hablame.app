@@ -1,2 +1,1 @@
-module LandingHelper
-end
+module LandingHelper; end

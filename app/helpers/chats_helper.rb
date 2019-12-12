@@ -1,2 +1,1 @@
-module ChatsHelper
-end
+module ChatsHelper; end

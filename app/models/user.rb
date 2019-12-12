@@ -20,7 +20,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :masqueradable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
+  devise :masqueradable,
+         :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :omniauthable
   validates :username, uniqueness: true, presence: true
 
   has_person_name
@@ -28,15 +34,12 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
   has_many :notes
- 
 
   def mailboxer_email(object)
-
-    if object.class==Mailboxer::Notification
+    if object.class == Mailboxer::Notification
       return nil
     else
       email
     end
- end
- 
+  end
 end

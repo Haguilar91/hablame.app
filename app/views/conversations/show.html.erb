@@ -5,19 +5,16 @@
                     <div class="col-md-1">
                     </div>
                     <div class="col-md-10">
-                        <div class="jumbotron">
-                            <h1 class="display-4">Consulta en linea</h1>
-                            <% recipient = @conversation.participants.find { |p| p != current_member } %>
-                            <p class="lead"><span class="text-dark"><%=recipient.name%></span> y <span class="text-primary"><%=current_member.name%> (yo)</span></p>
-                            <hr class="my-4">
-                            <p><%=@conversation.subject %></p>
+                        <div class="jumbotron container" >
+                          
+                            <%= render "walls/patientinfo.html.erb"%>
                         </div>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-1" >
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-1" >
+                    <div class="col-md-1"  >
                     </div>
                     <div class="col-md-5" >
                         <!--Chat va aqui-->
@@ -26,7 +23,6 @@
                                 <div class="scrolleame bg-light">
                                     <section>
                                      <% @conversation.receipts_for(current_member).each do |receipt|%>
-                                        
                                             <p><%= receipt.message.sender.name%> dijo: &nbsp; <%= receipt.message.body%></p>
                                     <%end%>
                                     <div id="msg">
@@ -36,21 +32,22 @@
                              </div>
                              <hr>
                              <%= form_tag conversation_messages_path(@conversation), method: :post do%>
-                                        <div class="container-fluid ">
-                                                <%= text_area_tag :body,nil, class: "form-control-lg", id:"sample5", placeholder: "Introduce un mensaje...", :rows => 10, style: 'width:100%;' %>
+                                        <div>
+                                                <%= text_area_tag :body ,nil, class: "form-control-lg", id:"sample5", placeholder: "Introduce un mensaje...", :rows => 10, style: 'width:100%;' %>
                                         </div >
                                         <button class="btn btn-outline-success bg-dark" id="tte">
                                                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                           &nbsp; Enviar
                                               </button>
                             <%end%>
+                            
 
 
                         <!--Chat termina aqui-->
                     </div>
                     </div>
 			<% if current_doctor%>
-                        <div class="container-fluid col col-md-4">
+                        <div class="col col-md-5">
                                 <%= render "walls/notes.html.erb"%>
                         </div>
 			<%end%>
@@ -59,4 +56,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class=row >
+        <div class="col col-md-1"></div>
+        
+        <div class="col col-md-1"></div>
     </div>

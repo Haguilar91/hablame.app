@@ -7,5 +7,5 @@ class ChangeDoctorsToNotNull < ActiveRecord::Migration[6.0]
     change_column_null :doctors, :is_approved, true
     change_column_null :doctors, :is_pending, true
     change_column_null :doctors, :birthday, true
-end
+  end
 end

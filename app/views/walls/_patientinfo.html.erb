@@ -1,0 +1,27 @@
+<% if current_doctor %>
+    <!--Ficha va aqui-->
+    <%conversation = current_member.mailbox.conversations.find(params[:id])%>
+
+       
+           <div class="row container">
+            <div class="col col-md-1"  ><i class="fas fa-user"></i></div>
+            <div class="col col-md-5" >
+                
+                    <h4>Acerca de:&nbsp; <%=@user.username%></h4>
+                    <hr>
+                    <p>Edad: <%=@user.age%></p>
+                    
+                    
+            </div>
+            <div class="col col-md-5"  >
+                   <h4>Resumen del paciente:</h4>
+                   <hr>
+                   <p class="my-1"><%= conversation.subject%></p>
+            </div>
+            <div class="col col-md-1"  ><i class="fas fa-file-invoice"></i></div>
+            
+           </div>
+          
+     
+
+<%end%>

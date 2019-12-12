@@ -1,6 +1,12 @@
-<h1>Te sientes mal, hablame </h1>
-<p class="lead">Bienvenido a la app que te ayudara a obtener la ayuda que necesitas de forma fácil y segura.</p>
+<div class=container>
+    <br>
+    <br>
+        <h1>Te sientes mal, hablame </h1>
+        <p class="lead">Bienvenido a la app que te ayudara a obtener la ayuda que necesitas de forma fácil y segura.</p>
+        
+        <% if current_member%>
+        <p><%=current_member.name%></p>
+        <%end%>
+        
 
-<% if current_member%>
-<p><%=current_member.name%></p>
-<%end%>
+</div>
