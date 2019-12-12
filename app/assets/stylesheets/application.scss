@@ -10,6 +10,12 @@
 @import "animate";
 @import "actiontext";
 
+//= require trix/banner
+//= require trix/editor
+//= require trix/toolbar
+//= require trix/attachments
+//= require trix/content
+
 // Fixes bootstrap nav-brand container overlap
 @include media-breakpoint-down(xs) {
   .container {
@@ -29,3 +35,4 @@ body > .alert {
     border: 2px solid #bdbdbd;
   overflow-y: scroll;
 }
+

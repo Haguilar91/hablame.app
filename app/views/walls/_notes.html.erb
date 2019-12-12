@@ -12,14 +12,16 @@
         </div>
 
  
-
+<div class="form-group">
         <%= form_for @note, remote: true do |f| %>
+            <%= f.submit "Guardar Nota" , :class => "btn btn-primary" %>
             <%= f.hidden_field(:doctor_id, :value =>  current_doctor.id)%>
             <%= f.hidden_field(:user_id,  :value => @user.id)%>
             <%= f.rich_text_area :body %>
-            <%= f.submit "Guardar Nota" %>
+            
        <% end %>
-
+    
+</div>
 
     <!--Ficha termina aqui-->
 <%end%>
