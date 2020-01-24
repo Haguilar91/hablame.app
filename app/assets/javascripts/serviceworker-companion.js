@@ -1,7 +1,6 @@
 // Este es el serviceworker con Cache-first Network.
 
 // Comprueba la compatibilidad del navegador en el que estamos ejecutando esto.
-alert("Hello! I am loaded!!");
 
 if ("serviceWorker" in navigator) {
     if (navigator.serviceWorker.controller) {
