@@ -1,8 +1,8 @@
 {
     "name": "Hablame",
     "short_name": "Hablame",
-    "theme_color": "#0ab864",
-    "background_color": "#ffffff",
+    "theme_color": "#008080",
+    "background_color": "#008080",
     "display": "standalone",
     "Scope": "/",
     "start_url": "/",
