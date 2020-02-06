@@ -6,10 +6,10 @@
 	  <hr>
 		  <h6 class="card-subtitle mb-2 text-muted">Universidad:  <%= doctor.college %></h6>
 		  <p class="card-text"><%= doctor.description %></p>
-		  <% if current_doctor%>
-		  <% if doctor.id = current_doctor.id %>
+		  <% if current_doctor %>
+		  <% if doctor.id = current_doctor.id%>
+		  <% end %>
 		  <%= link_to "Regresar a Conversacion", conversation_path(:id => @conversation.id), class: 'btn btn-danger' %>
-		  <%end%>
 		  <%else%>
 		  <%= link_to "Enviar Mensaje", new_conversation_path(:doctor_id => doctor.id), class: 'btn btn-primary' %>
 		  <%end%>
