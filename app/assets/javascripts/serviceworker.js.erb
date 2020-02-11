@@ -88,7 +88,7 @@ self.addEventListener("refreshOffline", function () {
   });
 });
 
-self.addEventListener('load', () => {
+self.addEventListener('fetch', () => {
   
   if (isConversationsRoute()) {
     console.info('unregistering service worker for admin route')
