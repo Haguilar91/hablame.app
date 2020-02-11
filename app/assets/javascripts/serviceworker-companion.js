@@ -16,3 +16,4 @@ if ("serviceWorker" in navigator) {
         });
     }
   }
+

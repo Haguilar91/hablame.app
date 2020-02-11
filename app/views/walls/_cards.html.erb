@@ -9,12 +9,12 @@
 
 		  <% if current_doctor %>
 				<% if doctor.id = current_doctor.id%>
-					 <%= link_to "Regresar a Conversacion", conversation_path(:id => @conversation.id), class: 'btn btn-danger' %>
+					 <%= link_to "Regresar a Conversacion", conversation_path(:id => @conversation.id), class: 'btn btn-danger', :"data-turbolinks" => false %>
 				<%else%>
-					 <%= link_to "Enviar Mensaje", new_conversation_path(:doctor_id => doctor.id), class: 'btn btn-primary' %>
+					 <%= link_to "Enviar Mensaje", new_conversation_path(:doctor_id => doctor.id), class: 'btn btn-primary', :"data-turbolinks" => false %>
 				<%end%>
 		  <%else%>
-					 <%= link_to "Enviar Mensaje", new_conversation_path(:doctor_id => doctor.id), class: 'btn btn-primary' %>
+					 <%= link_to "Enviar Mensaje", new_conversation_path(:doctor_id => doctor.id), class: 'btn btn-primary', :"data-turbolinks" => false %>
           <%end%>
 
 

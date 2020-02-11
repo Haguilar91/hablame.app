@@ -1,0 +1,46 @@
+
+                        <div class="jumbotron container bg-dark text-light">
+                            <%= render "walls/patientinfo.html.erb"%>
+                            <p>No cache</p>
+                        </div>
+                  
+               <br>
+                        <!--Chat     va aqui-->
+                        <div class="form-group">
+                                
+                                <div class="scrolleame bg-dark text-light">
+                                    <section>
+                                     <% @conversation.receipts_for(current_member).each do |receipt|%>
+                                            <p><%= receipt.message.sender.name%> dijo: &nbsp; <%= receipt.message.body%></p>
+                                    
+                                    <%end%>
+                                    <div id="msg" style="background-color:green;">
+                                
+                                    </div>
+                                </section>
+                             </div>
+                             <hr>
+                             
+                            
+
+               
+                   
+                  
+
+                        <!--Chat termina aqui-->
+                    </div>
+                    </div>
+                    <div class=container style="background-color:green;">
+
+                    <%= form_for conversation_messages_path(@conversation), remote: true do |f| %>
+                         <%= f.text_field :body %>
+                         <%= f.submit %>
+                   <% end %>
+
+                   
+			<% if current_doctor%>
+                        <div class="col col-md-5">
+                                <%= render "walls/notes.html.erb"%>
+                        </div>
+			<%end%>
+                   

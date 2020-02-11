@@ -20,12 +20,14 @@
                         <!--Chat va aqui-->
                         <div class="form-group">
                                 
-                                <div class="scrolleame bg-dark"  id="msg">
+                              <div class="scrolleame bg-dark">
                                     <section>
                                      <% @conversation.receipts_for(current_member).each do |receipt|%>
                                             <p><%= receipt.message.sender.name%> dijo: &nbsp; <%= receipt.message.body%></p>
                                     <%end%>
-                             
+                                    <div id="msg">
+                                
+                                    </div>
                                 </section>
                              </div>
                              <hr>
