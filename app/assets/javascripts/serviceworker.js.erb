@@ -5,6 +5,37 @@ const CACHE = "pwabuilder-page";
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
 const offlineFallbackPage = '/offline.html';
 
+const precacheFiles = [
+  '/404.html',
+  '/422.html',
+  '/500.html',
+  '/favicon.ico',
+  '/offline.html'
+  // Agrega un array con los archivos que cargaras en el precache de tu proyecto
+];
+
+
+self.addEventListener("install", function (event) {
+  console.log("[PWA Builder] Install Event processing");
+
+  console.log("[PWA Builder] Skip waiting on install");
+  self.skipWaiting();
+
+  event.waitUntil(
+    caches.open(CACHE).then(function (cache) {
+      console.log("[PWA Builder] Caching pages during install");
+      return cache.addAll(precacheFiles);
+    })
+  );
+});
+
+// Allow sw to control of current page
+self.addEventListener("activate", function (event) {
+  console.log("[PWA Builder] Claiming clients for current page");
+  event.waitUntil(self.clients.claim());
+});
+
+/*s
 // Install stage sets up the offline page in the cache and opens a new cache
 self.addEventListener("install", function (event) {
   console.log("[PWA Builder] Install Event processing");
@@ -21,6 +52,7 @@ self.addEventListener("install", function (event) {
     })
   );
 });
+*/
 
 // If any fetch fails, it will show the offline page.
 self.addEventListener("fetch", function (event) {
