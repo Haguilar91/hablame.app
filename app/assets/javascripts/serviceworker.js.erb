@@ -87,3 +87,20 @@ self.addEventListener("refreshOffline", function () {
     });
   });
 });
+
+self.addEventListener('load', () => {
+  
+  if (isConversationsRoute()) {
+    console.info('unregistering service worker for admin route')
+    unregister()
+    console.info('reloading')
+    self.location.reload()
+    return false
+    
+}
+});
+
+  function isConversationsRoute() {
+    return self.location.pathname.startsWith('/conversations')
+  };
+  
