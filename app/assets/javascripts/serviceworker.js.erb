@@ -3,6 +3,11 @@
 const CACHE = "pwabuilder-adv-cache";
 const precacheFiles = [
   /* Add an array of files to precache for your app */
+  '/404.html',
+  '/422.html',
+  '/500.html',
+  '/favicon.ico',
+  '/offline.html'
 ];
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
@@ -11,15 +16,15 @@ const offlineFallbackPage = "/offline.html";
 const networkFirstPaths = [
   /* Add an array of regex of paths that should go network first */
   // Example: /\/api\/.*/
-  '/conversations/.*',
-  '/admin/.*'
+  /\/conversations\/.*/,
+  /\/admin\/.*/
 ];
 
 const avoidCachingPaths = [
   /* Add an array of regex of paths that shouldn't be cached */
   // Example: /\/api\/.*/
-  '/conversations/.*',
-  '/admin/.*'
+  /\/conversations\/.*/,
+  /\/admin\/.*/
 ];
 
 function pathComparer(requestUrl, pathRegEx) {
