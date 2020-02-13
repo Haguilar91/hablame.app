@@ -2,7 +2,7 @@
 <div class="card animated fadeInDown bg-dark text-light" style="width: 18rem;">
 		<div class="card-body">
 		  <h5 class="card-title">Lic.&nbsp;<%=doctor.name.full%></h5>
-		  <%= gravatar_tag @doctor ,:circle, :size => 150, :html => { :class => "img img-fluid card-header" }  %>
+		  <%= gravatar_tag @doctor ,:circle, :size => 150, :html => { :class => "img img-fluid card-header" }, :secure => true  %>
 	  <hr>
 		  <h6 class="card-subtitle mb-2 text-muted">Universidad:  <%= doctor.college %></h6>
 		  <p class="card-text"><%= doctor.description %></p>

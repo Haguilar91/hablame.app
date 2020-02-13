@@ -9,7 +9,7 @@
 <div class="card" style="width: 18rem;">
   <div class="card-body">
       <h5 class="card-title"><%=conversation.subject%></h5>
-      <%= gravatar_tag @recipient.email,:circle, :size => 150, :html => { :class => "img img-fluid card-header" }  %>
+      <%= gravatar_tag @recipient.email,:circle, :size => 150, :html => { :class => "img img-fluid card-header" } , :secure => true %>
 <hr>
     <h6 class="card-subtitle mb-2 text-muted">Con: Lic.&nbsp; <%= @recipient.name %></h6>
     <hr>

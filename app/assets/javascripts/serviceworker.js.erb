@@ -1,4 +1,4 @@
-//This is the service worker with the Advanced caching
+//This is the service worker with the Advanced caching v3
 
 const CACHE = "pwabuilder-adv-cache";
 const precacheFiles = [
@@ -16,15 +16,16 @@ const offlineFallbackPage = "/offline.html";
 const networkFirstPaths = [
   /* Add an array of regex of paths that should go network first */
   // Example: /\/api\/.*/
-  /\/conversations\/.*/,
-  /\/admin\/.*/
+'/\/conversations\/.*/',
+'/\/admin\/.*/'
 ];
 
 const avoidCachingPaths = [
   /* Add an array of regex of paths that shouldn't be cached */
   // Example: /\/api\/.*/
-  /\/conversations\/.*/,
-  /\/admin\/.*/
+/\/conversations\/.*/,
+/\/admin\/.*/
+
 ];
 
 function pathComparer(requestUrl, pathRegEx) {
@@ -55,8 +56,8 @@ self.addEventListener("install", function (event) {
       console.log("[PWA Builder] Caching pages during install");
 
       return cache.addAll(precacheFiles).then(function () {
-        if (offlineFallbackPage === "/offline.html") {
-          return cache.add(new Response("TODO: Update the value of the offlineFallbackPage constant in the serviceworker."));
+        if (offlineFallbackPage === "offline.html") {
+          return cache.add(new Response("TODO: Updadote the value of the offlineFallbackPage constant in the serviceworker."));
         }
 
         return cache.add(offlineFallbackPage);
@@ -98,23 +99,27 @@ function cacheFirstFetch(event) {
 
         return response;
       },
-      async function () {
+      function () {
         // The response was not found in the cache so we look for it on the server
-        try {
-              const response = await fetch(event.request);
-              // If request was success, add or update it in the cache
-              event.waitUntil(updateCache(event.request, response.clone()));
-              return response;
-          }
-          catch (error) {
-              // The following validates that the request was for a navigation to a new document
-              if (event.request.destination !== "document" || event.request.mode !== "navigate") {
-                  return;
-              }
-              console.log("[PWA Builder] Network request failed and no cache." + error);
-              const cache = await caches.open(CACHE);
+        return fetch(event.request)
+          .then(function (response) {
+            // If request was success, add or update it in the cache
+            event.waitUntil(updateCache(event.request, response.clone()));
+
+            return response;
+          })
+          .catch(function (error) {
+            // The following validates that the request was for a navigation to a new document
+            if (event.request.destination !== "document" || event.request.mode !== "navigate") {
+              return;
+            }
+
+            console.log("[PWA Builder] Network request failed and no cache." + error);
+            // Use the precached offline page as fallback
+            return caches.open(CACHE).then(function (cache) {
               cache.match(offlineFallbackPage);
-          }
+            });
+          });
       }
     )
   );
