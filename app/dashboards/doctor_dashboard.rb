@@ -15,6 +15,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     first_name: Field::String,
     last_name: Field::String,
     curriculum_path: Field::String,
+    password: Field::String,
     college: Field::String,
     collegiate_id: Field::String,
     is_active: Field::Number,
@@ -60,6 +61,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     curriculum_path
     college
     collegiate_id
+    password
     is_active
     is_approved
     is_pending
