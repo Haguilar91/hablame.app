@@ -1,14 +1,67 @@
-<div>
-    <br>
-    <br>
+<div class=" text-white text-center" style="background:url('assets/bg-masthead.jpg')no-repeat center center;background-size:cover;">
+
        
-
-        <h1>Te sientes mal, <%=image_tag 'logo.png', class: "navbar-brand", style: 'height:2em;width:auto;'%> </h1>
-        <p class="lead">Bienvenido a la app que te ayudara a obtener la ayuda que necesitas de forma fácil y segura.</p>
+            <div class="row container">
+                <div class="col-xl-9 mx-auto" style="padding: -25px;margin: 13px;">
+                    <h1 class="d-block m-auto mb-5" style="margin: -148px;font-family: Satisfy, cursive;">Bienvenido a&nbsp;<img class="justify-content-center" src="assets/logo.png" style="height: 73px;"></h1>
+                    <div class="row" style="margin: -2px;margin-bottom: -47px;">
+                        <div class="col" style="margin: 0;padding: 15px;height: 136px;margin-bottom: 61px;">
+                            <p style="height: 60px;font-family: 'Annie Use Your Telescope', cursive;font-size: 43px;padding: -18px;">La nueva app para atención psicológica en línea.</p>
+                             <br><br><br>
+                             <button class="btn btn-primary text-center d-table float-none justify-content-center align-items-center m-auto" type="button">Empieza ahora</button>
+                             <br><br>
+                        </div>
+                    </div>
+                </div>
+               
+              
+              
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                    <form>
+                        <div class="form-row">
+                            <div class="col" style="padding: 0;margin: 0;margin-top: 42px;"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         
-        <% if current_member%>
-        <p><%=current_member.name%></p>
-        <%end%>
-        
+    </div>
+    <br>
+    <br>
+    <section class="features-icons bg-light text-center">
+        <div class="row" style="font-size: 17px;height: 87px;padding: -3px;margin-top: -105px;margin-left: -16px;margin-bottom: 25px;">
+            <div class="col">
+                <div class="alert alert-success" role="alert"><span><strong>¿Eres Psicólogo? Aplica&nbsp;&nbsp;</strong><br></span><a class="alert-link" href="/doctors/sign_up">Aquí</a></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                        <div class="row">
+                            <div class="col"><img src="assets/lock.svg" style="height: 98px;padding: 0;filter: hue-rotate(124deg) saturate(0%) sepia(0%); "></div>
+                        </div>
+                        <h3 class="text-center m-auto text-dark" style="font-family: 'Annie Use Your Telescope', cursive;margin: 0px;padding: 11px;">Segura</h3>
+                        <p class="lead mb-0 text-dark" style="font-family: 'Annie Use Your Telescope', cursive;">Tu información esta cifrada</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                        <div class="text-center d-flex features-icons-icon"><img class="d-lg-flex mx-auto justify-content-lg-center" src="assets/user-secret.svg" style="margin: 7px;" loading="eager"></div>
+                        <h3 class="text-dark" style="font-family: 'Annie Use Your Telescope', cursive;">Anónimo</h3>
+                        <p class="lead mb-0 text-dark" style="font-family: 'Annie Use Your Telescope', cursive;">Tu psicólogo no sabe tu información personal, habla lo que sientes.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                        <div class="d-flex features-icons-icon"><img class="mx-auto" src="assets/check-circle.svg" style="color: rgb(0,0,0);height: 98px;"></div>
+                        <h3 class="text-dark" style="font-family: 'Annie Use Your Telescope', cursive;">Fácil de Usar</h3>
+                        <p class="lead mb-0 text-dark" style="font-family: 'Annie Use Your Telescope', cursive;">Accede Fácil y Rápido a la ayuda que necesitas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
+
+ 
