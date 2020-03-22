@@ -5,13 +5,13 @@
   </div>
 <% end %>
 
-<nav class="navbar navbar-expand-md" style="background-color:#86A8E7">
+<nav class="navbar navbar-expand-md" style="background-color:#1E3888">
   <div class="container">
   <a href='/'>
       <%=image_tag 'logo.png', class: "navbar-brand", style: 'height:2em;width:auto;'%>
   </a>
      
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" style="color: white !important; " type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
 
@@ -20,11 +20,6 @@
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
       </ul>
-
-
-
-
-
       <ul class="navbar-nav text-light" >
         <li class="nav-item"><%= link_to "¿Que hay de nuevo?", announcements_path, class: "nav-link #{unread_announcements(current_user)} text-light" %></li>
         <% if member_signed_in? %>
