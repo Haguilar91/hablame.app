@@ -1,67 +1,222 @@
-<div class=" text-white text-center" style="background:url('assets/bg-masthead.jpg')no-repeat center center;background-size:cover;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amita">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Atma:300,400,500,600,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Satisfy">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:ital,wght@0,700;0,900;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/051dbbf44b.js" crossorigin="anonymous"></script>
+    <title>Document</title>
 
-       
-            <div class="row container">
-                <div class="col-xl-9 mx-auto" style="padding: -25px;margin: 13px;">
-                    <h1 class="d-block m-auto mb-5" style="margin: -148px;font-family: Satisfy, cursive;">Bienvenido a&nbsp;<img class="justify-content-center" src="assets/logo.png" style="height: 73px;"></h1>
+
+
+</head>
+<style>
+#banner {
+  display: table;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/bg-masthead.jpg") no-repeat center center;
+  background-size: cover;
+  background-position: center top;
+  height: 450px;
+  color: white;
+  text-align: center;
+}
+</style>
+
+
+<body>
+
+    
+    <br>
+
+    <div class="row container-fluid">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 jumbotron " id="banner">
+            <div>
+                <div class="col-xl-9 mx-auto" style="padding: -25px;margin: 35px; ">
+                    <h1 class="d-block m-auto mb-5" style="margin: -3em;font-family: Roboto, cursive; font-size:3.3em;">
+                        Bienvenido a&nbsp;<img class="justify-content-center" src="assets/logo.png"
+                            style="height: 73px;"></h1>
                     <div class="row" style="margin: -2px;margin-bottom: -47px;">
-                        <div class="col" style="margin: 0;padding: 15px;height: 136px;margin-bottom: 61px;">
-                            <p style="height: 60px;font-family: 'Annie Use Your Telescope', cursive;font-size: 43px;padding: -18px;">La nueva app para atención psicológica en línea.</p>
-                             <br><br><br>
-                             <button class="btn btn-primary text-center d-table float-none justify-content-center align-items-center m-auto" type="button">Empieza ahora</button>
-                             <br><br>
+                        <div class="col" style="margin: 0;padding: 10px;height: 70px;margin-bottom: 61px;">
+                            <p class="text-light" style="font-family: 'open sans';font-size:1.9em; font-style: italic;">
+                                Atención psicológica en la palma de tu mano</p>
                         </div>
                     </div>
                 </div>
-               
-              
-              
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                     <form>
                         <div class="form-row">
-                            <div class="col" style="padding: 0;margin: 0;margin-top: 42px;"></div>
+                            <div class="col">
+                            <a name="" id="" class="btn btn-primary text-center d-table float-none justify-content-center align-items-center m-auto" 
+                            href="users/sign_up" role="button" style="height: 80px; width: 239px;font-size: 2em; padding-top:0.4em;">Empieza
+                            ahora</a>
+                            
+                           
+                            </div>
                         </div>
+                    
                     </form>
+                    <div class="row">
+                    <div class="col-md-2"></div>
+                            <div class="alert alert-primary col-md-8" role="alert">
+                                <strong>Alternativamente, <a class="alert-link" href="users/sign_in">Inicia Sesión</a></strong>
+                            </div>
+                    <div class="col-md-2"></div>
+                    </div>
                 </div>
             </div>
-        
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+
+    <div class="row" style="text-align: center;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 ">
+            <div class="alert alert-success" role="alert"><i class="fas fa-brain"></i>&nbsp;<span><strong>¿Eres
+                        Psicólogo? Aplica&nbsp;&nbsp;</strong></span><a class="alert-link" href="/doctors/sign_up">Aquí</a></div>
+        </div>
+        <div class="col-md-2"></div>
     </div>
     <br>
     <br>
-    <section class="features-icons bg-light text-center">
-        <div class="row" style="font-size: 17px;height: 87px;padding: -3px;margin-top: -105px;margin-left: -16px;margin-bottom: 25px;">
-            <div class="col">
-                <div class="alert alert-success" role="alert"><span><strong>¿Eres Psicólogo? Aplica&nbsp;&nbsp;</strong><br></span><a class="alert-link" href="/doctors/sign_up">Aquí</a></div>
+    <div class="row text-dark" style="text-align:center;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1>Razones para usar Háblame</h1>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <br>
+    <div class="row " style="text-align: center; margin-top:5em;">
+        <div class="col-md-1 container"></div>
+        <div class="col-md-3 container">
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                <div class="col" style="color:goldenrod;"><i class="fas fa-lock fa-5x"></i></div>
+                <h3 class="text-center m-auto text-dark"
+                    style="font-family: 'Roboto', cursive;margin: 3px;padding: 14px; font-size: xx-large;">Seguridad</h3>
+                <p class="lead mb-0 text-dark" style="font-family: 'Open Sans', cursive; font-size: x-large;">Información cifrada</p>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                        <div class="row">
-                            <div class="col"><img src="assets/lock.svg" style="height: 98px;padding: 0;filter: hue-rotate(124deg) saturate(0%) sepia(0%); "></div>
-                        </div>
-                        <h3 class="text-center m-auto text-dark" style="font-family: 'Annie Use Your Telescope', cursive;margin: 0px;padding: 11px;">Segura</h3>
-                        <p class="lead mb-0 text-dark" style="font-family: 'Annie Use Your Telescope', cursive;">Tu información esta cifrada</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                        <div class="text-center d-flex features-icons-icon"><img class="d-lg-flex mx-auto justify-content-lg-center" src="assets/user-secret.svg" style="margin: 7px;" loading="eager"></div>
-                        <h3 class="text-dark" style="font-family: 'Annie Use Your Telescope', cursive;">Anónimo</h3>
-                        <p class="lead mb-0 text-dark" style="font-family: 'Annie Use Your Telescope', cursive;">Tu psicólogo no sabe tu información personal, habla lo que sientes.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                        <div class="d-flex features-icons-icon"><img class="mx-auto" src="assets/check-circle.svg" style="color: rgb(0,0,0);height: 98px;"></div>
-                        <h3 class="text-dark" style="font-family: 'Annie Use Your Telescope', cursive;">Fácil de Usar</h3>
-                        <p class="lead mb-0 text-dark" style="font-family: 'Annie Use Your Telescope', cursive;">Accede Fácil y Rápido a la ayuda que necesitas.</p>
-                    </div>
-                </div>
+        <div class="col-md-3 container">
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                <div class="col" style="color:brown;"><i class="fas fa-user-secret fa-5x"></i></div>
+                <h3 class="text-dark" style="font-family: 'Roboto', cursive;  margin: 3px; padding: 14px; font-size: xx-large;">Anonimato
+                </h3>
+                <p class="lead mb-0 text-dark" style="font-family: 'Open Sans', cursive; font-size: x-large;">Tu información personal no será solicitada</p>
             </div>
         </div>
-    </section>
+        <div class="col-md-3 container">
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                <div class="col" style="color:green;"><i class="fas fa-check-circle fa-5x"></i></div>
+                <h3 class ="text-dark" style="font-family: 'Roboto', cursive;  margin: 3px; padding: 14px; font-size: xx-large;">Fácil de
+                    Usar</h3>
+                <p class="lead mb-0 text-dark" style="font-family: 'Open Sans', cursive; font-size: x-large;">Accede
+                    fácil y rápidamente a la ayuda que necesitas</p>
+            </div>
+        </div>
+        <div class="col-md-1 container"></div>
+    </div>
+    <div class="row" style="text-align: center;">
+        <div class="col-md-1 container"></div>
+        <div class="col-md-3 container">
 
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                <div class="col" style="color:coral; "><i class="material-icons"
+                        style="font-size:6em;">phonelink</i></i></div>
+                <h3 class = "text-dark" style="font-family: 'Roboto', cursive;  margin: 3px; padding: 14px; font-size: xx-large;">
+                    Multiplataforma</h3>
+                <p class="lead mb-0 text-dark" style="font-family: 'Open Sans', cursive; font-size: x-large;">Accede
+                    desde cualquier dispositivo</p>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-3 container text-dark">
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                <div class="col" style="color:olive; "><i class="material-icons"
+                        style="font-size:6em;">attach_money</i></i></div>
+                <h3 class = "text-dark" style="font-family: 'Roboto', cursive;  margin: 3px; padding: 14px; font-size: xx-large;">Economía
+                </h3>
+                <p class="lead mb-0 text-dark" style="font-family: 'Open Sans', cursive; font-size: x-large;">Precios accesibles</p>
+            </div>
+        </div>
+        <div class="col-md-3 container ">
+
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                <div class="col" style="color:dodgerblue; "><i class="fas fa-graduation-cap fa-5x"></i></div>
+                <h3 class ="text-dark" style="font-family: 'Roboto', cursive;  margin: 3px; padding: 14px; font-size: xx-large;">Profesionalismo</h3>
+                <p class="lead mb-0 text-dark" style="font-family: 'Open Sans', cursive; font-size: x-large;">Psicólogos altamente capacitados</p>
+            </div>
+        </div>
+        <div class="col-md-1 container"></div>
+    </div>
+
+
+
+
+
+    <div class="row text-dark" style="text-align: center; margin:4em; ">
+      <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <blockquote class="blockquote text-center">
+                <h1 class="mb-0">“Siempre habrá una puerta, sin importar lo oscuro de la habitación, encuentrala y sal de allí”</h1>
+                <footer class="blockquote-footer">Shafqat Bashar</cite></footer>
+              </blockquote>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+
+
+
+
+
+
+    
+    <div class="row text-dark" style="text-align:center;">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 jumbotron">
+            <h3>¿Listo para usar Háblame?</h3>
+            <br>
+                            <a name="" id="" class="btn btn-primary text-center d-table float-none justify-content-center align-items-center m-auto" 
+                            href="users/sign_up" role="button" style="height: 80px; width: 239px;font-size: 2em; padding-top:0.4em;">Empieza
+                            ahora</a>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+
+
+    <div class="row text-dark" style="text-align:center; margin-top: 3em;">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+            <h3>Hecho con &nbsp;<i class="fas fa-heart" style="color:red;"> </i> en San Pedro Sula, Honduras por Hector A. para Terna 2020</h3>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+
+   
 
  
+    </div>
+    </body>
