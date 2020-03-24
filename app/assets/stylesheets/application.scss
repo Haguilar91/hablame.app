@@ -34,3 +34,13 @@ body > .alert {
   overflow-y: scroll;
 }
 
+#banner {
+  display: table;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(asset_path('bg-masthead.jpg')) no-repeat center center;
+  background-size: cover;
+  background-position: center top;
+  height: 450px;
+  color: white;
+  text-align: center;
+}
