@@ -1,3 +1,9 @@
+<script>
+self.addEventListener('fetch', function(event) {
+  event.respondWith(fetch(event.request));
+});
+</script>
+
 <div class="jumbotron text-light" style="background-color:#1B998B; text-align:center;">
 <h2>Bienvenido &nbsp; <%=current_user.username%></h2>
 </div>

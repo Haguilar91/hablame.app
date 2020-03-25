@@ -1,9 +1,8 @@
 class WelcomeController < ApplicationController
-	skip_before_action :verify_authenticity_token
+	#skip_before_action :verify_authenticity_token
   def index
     
     if (!current_user)
-   
       render file: 'home/index.html.erb', layout: false
     else
       @showall = Doctor.all
