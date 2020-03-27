@@ -1,21 +1,25 @@
  <br>
-                <div class="jumbotron">
-                  <h2>Aplica a Hablame</h2>
-                </div>
-                <br>
-  <div class="row" >
-    <div class="col col-md-1 col-sm-1 col-1" style=""></div>
-
-    <div class="col col-md-10 col-sm-10 container-fluid">
+              
+  <div class="row container" >
+    
 
                
+<div class="col col-md-1"></div>
 
-                <div class="alert alert-primary" role="alert">
-                  Para iniciar sesion, <%= render "doctors/shared/links" %></div>
+
+    <div class="col col-md-10 col-12 col-sm-12">
+                
 
                 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                 <%= f.error_notification %>
-
+                <div class="alert alert-primary" role="alert">
+                  Para iniciar sesion, <%= render "doctors/shared/links" %></div>
+                  <br>
+                  <div class="jumbotron" style="text-align: center;">
+                  <h2>Aplica a Hablame</h2>
+                </div>
+                <br>
+                
                 <div class="form-inputs">
                 <%= f.input :name , 
                 required: true,
@@ -73,9 +77,7 @@
                 <br>
                 <br>
 
+           <div class="col col-md-1"></div>
+           </div>     
 
-                
-      
-    </div>
-    <div class="col col-md-1 col-sm-1 col-1"</div>
   </div>
