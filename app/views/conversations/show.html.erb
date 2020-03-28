@@ -1,24 +1,60 @@
 <div >
   
-                        <div class="jumbotron container bg-dark text-light" >
-                          
+                        <div class="jumbotron container text-light" style="background-color:#1B998B; text-align:center;" >
+                        <%if current_doctor%>
                             <%= render "walls/patientinfo.html.erb"%>
-                        </div>
+                        <%else%>
+                          
 
+                            <div class="row container" >
+                                <div class="col-lg-2" align=center>
+                                  <%= gravatar_tag @doctor.email,:circle, :size => 160, :secure => true %>
+                                </div>
+                                <div class="col-lg-10" align="center" style="color:white;">
+                                  
+                                     <p>Conversando con:</p>
+                                      <h1><%=@doctor.name%></h1>
+                                      <h5><%=@doctor.college%><h5>
+                                      <p><%=@doctor.description%></p>
+                              </div>
+
+                        <%end%>
+                        </div>
+                        </div>
              
               
                         <!--Chat va aqui-->
                         <div class="form-group">
                                 
-                              <div class="scrolleame bg-dark">
-                                    <section>
-                                     <% @conversation.receipts_for(current_member).each do |receipt|%>
-                                            <p><%= receipt.message.sender.name%> dijo: &nbsp; <%= receipt.message.body%></p>
-                                    <%end%>
+                              <div class="scrolleame bg-dark row ">
+                                <div class="col col-md-2 col-sm-1 col-1"></div>
+
+
+                                <div class="col col-md-8 col-sm-10 col-10">
+                                    <section class=container-fluid>
+                                      
+                                             <% @conversation.receipts_for(current_member).each do |receipt|%>
+                                                     <% if receipt.message.sender != current_member  %>
+                                                     <div style="text-align:left;"> 
+                                                            <p class="speech-bubble speech-bubble:after text-light" ><%= receipt.message.sender.name%> dijo: &nbsp; <%= receipt.message.body%></p>
+                                                            <br>
+                                                      </div>
+                                                      <%else%>
+                                                      <div style="text-align:right;"> 
+                                                            <p class="speech-bubble-other speech-bubble-other:after" ><%= receipt.message.sender.name%> dijo: &nbsp; <%= receipt.message.body%></p>
+                                                      </div>
+                                            <br>
+                                                      <%end%>
+                                             <%end%>
+                                    
                                     <div id="msg">
                                 
                                     </div>
-                                </section>
+                                    <br>
+
+                                 </section>
+                               </div>
+                                 <div class="col col-md-2 col-sm-1 col-1"></div>
                              </div>
                              <hr>
                              <%= form_tag conversation_messages_path(@conversation), method: :post do%>
@@ -34,9 +70,14 @@
 
 
                         <!--Chat termina aqui-->
-                
+                <br>
 			<% if current_doctor%>
-                    
+                    <div class="row container jumbotron " >
+                        <h3 ><i class="far fa-sticky-note"></i>&nbsp;Notas sobre paciente</h3>
+                          <div class="col col-md-1 col-sm-1 col-1"></div>
+                            <div class="col col-md-10 col-sm-10 col-10 table-responsive">
                                 <%= render "walls/notes.html.erb"%>
-                        
+                            </div>
+                           <div class="col col-md-1 col-sm-1 col-1"></div>
+                    </div>
 			<%end%>

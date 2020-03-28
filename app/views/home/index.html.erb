@@ -17,15 +17,31 @@
                     <h1 class="d-block m-auto mb-5" style="margin: -3em;font-family: Roboto, cursive; font-size:3.3em;">
                         Bienvenido a&nbsp;<img class="justify-content-center" src="assets/logo.png"
                             style="height: 73px;"></h1>
+                    <% if current_doctor %>
+                    <h3>Lic.&nbsp;<%=current_doctor.name%></h3>
+                    <%end%>
                     <div class="row" style="margin: -2px;margin-bottom: -47px;">
                         <div class="col" style="margin: 0;padding: 10px;height: 70px;margin-bottom: 61px;">
                             <p class="text-light" style="font-family: 'open sans';font-size:1.9em; font-style: italic;">
                                 Atención psicológica en la palma de tu mano</p>
                         </div>
                     </div>
+
                 </div>
                 <div class="mx-auto" style="padding-top:2em;">
-                    <form>
+                     <%if current_doctor%>
+                             <div class="form-row">
+                            <div class="col">
+                                <a name="" id=""
+                                    class="btn btn-primary text-center d-table float-none justify-content-center align-items-center m-auto"
+                                    href="conversations" role="button"
+                                    style="height: 80px; width: 239px;font-size: 2em; padding-top:0.4em;"><i class="fas fa-envelope-open-text"></i>&nbsp;Ver mensajes</a>
+
+
+                            </div>
+                        </div>
+                    <%else%>
+                        <form>
                         <div class="form-row">
                             <div class="col">
                                 <a name="" id=""
@@ -47,13 +63,15 @@
                         </div>
                         <div class="col-md-2"></div>
                     </div>
+
+                    <%end%>
                 </div>
             </div>
         </div>
         <div class="col col-lg-2 col-md-1 col-sm-1 col-1" > </div>
     </div>
 
-
+<%if !current_doctor%>
     <div class="row " style="text-align: center;">
         <div class="col col-lg-2 col-md-2 col-sm-1 col-1"></div>
         <div class="col-md-8 ">
@@ -63,6 +81,9 @@
         </div>
         <div class="col-md-2"></div>
     </div>
+<%end%>
+
+
     <br>
     <br>
     <div class="row text-dark" style="text-align:center;">
@@ -211,7 +232,7 @@
 
 
 
-
+<%if !current_doctor%>
     <div class="row text-dark" style="text-align:center;">
         <div class="col col-lg-2 col-md-2 col-sm-1 col-1">
         </div>
@@ -227,6 +248,7 @@
         <div class="col-md-2">
         </div>
     </div>
+<%end%>
 
 
     <div class="row text-dark" style="text-align:center; margin-top: 3em;">

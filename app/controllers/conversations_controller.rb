@@ -6,6 +6,7 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = current_member.mailbox.conversations.find(params[:id])
+    @doctor =  @conversation.participants.find { |p| p != current_user }
     @user =
       User.find_by_id(
         @conversation.participants.find { |p| p != current_doctor }

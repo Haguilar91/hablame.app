@@ -2,6 +2,7 @@
     <!--Ficha va aqui-->
  
 <div class="form-group">
+	<br>
         <%= form_for @note, remote: true do |f| %>
             <%= f.hidden_field(:doctor_id, :value =>  current_doctor.id)%>
             <%= f.hidden_field(:user_id,  :value => @user.id)%>
