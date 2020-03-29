@@ -4,23 +4,28 @@ self.addEventListener('fetch', function(event) {
 });
 </script>
 
-<div class="jumbotron text-light" style="background-color:#1B998B; text-align:center;">
-<h2>Bienvenido &nbsp; <%=current_user.username%></h2>
+<div class="row">
+	<div class="col-1"></div>
+	<!--Body-->
+
+<div class="col-10 col-md-12">
+<div class="jumbotron text-light" style="background-color:#1B998B; text-align: center ">
+<h2>Bienvenid@ &nbsp; <%=current_user.username%></h2>
+<p>Aquí esta la lista de Psicólogos disponibles.</p>
 </div>
 
-<div class="row"><!--Body-->
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-10">
-        <div class="row" >
 
-            <% @showall.each do |doctor|%>
+      	
+      
+            <div class="card-columns" style="display: inline-block; padding-left: 1.5em;">
+			            <% @showall.each do |doctor|%>
+			            
+			                        <%= render '/walls/cards', doctor: doctor%>
+			            
+			            <%end%>
+            </div>
+ </div> 
+<div class="col-1 "></div>
 
-                        <%= render '/walls/cards', doctor: doctor%>
 
-            <%end%>
-        </div>
-    </div>
-    <div class="col-md-1">
-    </div>
 </div>

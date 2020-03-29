@@ -1,5 +1,5 @@
 
-<div class="card animated fadeInDown  text-light" style="width: 18rem; background-color:#1E3888; text-align: center;">
+<div class="card p-7 animated fadeInDown  text-light" style=" width: 15rem; background-color:#1E3888; text-align: center;  ">
 		<div class="card-body">
 		  <h5 class="card-title" >Lic.&nbsp;<%=doctor.name.full%></h5>
 		  <%= gravatar_tag @doctor ,:circle, :size => 150, :html => { :class => "img img-fluid card-header" }, :secure => true %>
@@ -9,7 +9,7 @@
 
 		  <% if current_doctor %>
 				<% if doctor.id = current_doctor.id%>
-					 <%= link_to "Regresar a Conversacion", conversation_path(:id => @conversation.id), class: 'btn btn-danger', :"data-turbolinks" => false %>
+					 <%= link_to "Regresar a Conversación", conversation_path(:id => @conversation.id), class: 'btn btn-danger', :"data-turbolinks" => false %>
 				<%else%>
 					 <%= link_to "Enviar Mensaje", new_conversation_path(:doctor_id => doctor.id), class: 'btn ', :"data-turbolinks" => false %>
 				<%end%>
