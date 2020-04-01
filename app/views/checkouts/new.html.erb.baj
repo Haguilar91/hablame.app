@@ -1,0 +1,39 @@
+
+<script src="https://js.braintreegateway.com/web/dropin/1.22.1/js/dropin.js"></script>
+<script id="braintree-client-token" type="application/json"><%= @client_token %></script>
+
+
+
+<div id="dropin-container"></div>
+<button id="submit-button" class="button button--small button--green">Purchase</button>
+
+
+
+
+
+<script>
+ 
+    var client_token = document.getElementById('braintree-client-token').innerHTML;
+    var button = document.querySelector('#submit-button');
+  braintree.dropin.create({
+    authorization: client_token,
+    selector: '#dropin-container'
+}, function (err, instance) {
+  button.addEventListener('click', function () {
+    instance.requestPaymentMethod(function (err, payload) {
+         if (err) {
+          console.log('Error', err);
+          return;
+        }
+
+        document.querySelector('#nonce').value = payload.nonce;
+        
+    });
+  })
+});
+</script>
+
+
+
+
+
