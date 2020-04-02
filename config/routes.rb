@@ -3,6 +3,10 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :notes
   root to: 'welcome#index'
+
+  resources :doctors
+  #resources :users
+
   devise_for :doctors,
              path: 'doctors', controllers: { sessions: 'doctors/sessions' }
   #omniauth_callbacks: "users/omniauth_callbacks"
@@ -11,8 +15,7 @@ Rails.application.routes.draw do
   #omniauth_callbacks: "users/omniauth_callbacks"
 
   resources :rooms
-  resources :doctors
-  resources :users
+ 
   resources :checkouts,  only: [:new, :create, :show]
   
   namespace :admin do

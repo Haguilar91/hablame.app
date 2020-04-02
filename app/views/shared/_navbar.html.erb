@@ -43,7 +43,7 @@
               <% end %>
               <%= link_to "Ajustes", edit_user_registration_path, class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
-              <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to '<i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;<b>Salir</b>'.html_safe, destroy_user_session_path, class: "dropdown-item", :method => :get %>
             </div>
           </li>
 <%elsif current_doctor%>
