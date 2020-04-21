@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :notes
   root to: 'welcome#index'
 
-  resources :doctors
+  #resources :doctors
   #resources :users
 
   devise_for :doctors,
