@@ -27,9 +27,14 @@
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
+  <% if current_doctor%>
+        <h4>Valor Suscripción:&nbsp;USD 31</h4>
+        <a href="/checkouts/new" class="btn btn-success"><i class="fas fa-money-bill"></i>&nbsp;Pagar Suscripcion</a>
+  <%end%>
 
-<h3>Cancel my account</h3>
+
+<h3>Cancelar mi cuenta</h3>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Regresar", :back %>

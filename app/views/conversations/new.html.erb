@@ -1,6 +1,11 @@
 <% if current_user %>
 <div class="jumbotron bg-dark">
-  <h4 class=""  style="color:white;">Nueva Conversacion con <%=@recipients.name%></h4>
+  <h3 class=""  style="color:white;">Nueva Conversacion con <%=@recipients.name%></h3>
+  <% if current_doctor%>
+        <h4>Valor Consulta:&nbsp;USD 31</h4>
+  <%else%>
+         <h4>Valor Consulta:&nbsp;USD 25</h4>
+  <%end%>
 </div>
 
 <div class="container-fluid" style="padding-top:2em;">
@@ -17,9 +22,10 @@
           <%= text_area_tag :body, nil, placeholder: "Manda tu mensaje" %>
         </div>
 
-      
         <%= submit_tag %>
       <% end %>
+      <br>
+    <a href="/checkouts/new" class="btn btn-success"><i class="fas fa-money-bill"></i>&nbsp;Pagar Consulta</a>
     </div>
     <div class="col-2" align="center"></div>
   </div>

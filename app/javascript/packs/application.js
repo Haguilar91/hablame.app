@@ -8,17 +8,18 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("local-time").start()
+require("trix")
+require("@rails/actiontext")
 global.Rails = Rails;
 window.Rails = Rails
 
 import 'bootstrap'
 import 'data-confirm-modal'
-import '../../assets/javascripts/serviceworker-companion.js';
+//import '../../assets/javascripts/serviceworker-companion.js';
 
 $(document).on("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 })
 
-require("trix")
-require("@rails/actiontext")
+

@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :notes
+
   root to: 'welcome#index'
 
   #resources :doctors
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   resources :rooms
  
   resources :checkouts,  only: [:new, :create, :show]
-  
+
   namespace :admin do
     resources :doctors
     resources :users
