@@ -1,0 +1,6 @@
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+<div class="field-unit__field" name="doctor[is_active]" id="doctor_isactive">
+ <%= f.select :is_active, options_for_select([["Desactivado", 0], ["Activado", 1]],:selected=>Doctor.find_by_id(params[:id]).is_active) %>
+</div>

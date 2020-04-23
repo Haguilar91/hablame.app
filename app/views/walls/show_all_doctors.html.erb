@@ -19,9 +19,9 @@ self.addEventListener('fetch', function(event) {
       
             <div class="card-columns" style="display: inline-block; padding-left: 1.5em;">
 			            <% @showall.each do |doctor|%>
-			            
+			            	<%if doctor.is_active==1%>
 			                        <%= render '/walls/cards', doctor: doctor%>
-			            
+			             <%end%>
 			            <%end%>
             </div>
  </div> 

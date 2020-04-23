@@ -18,7 +18,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     password: Field::String,
     college: Field::String,
     collegiate_id: Field::String,
-    is_active: Field::Number,
+    is_active: IsActiveField,
     is_approved: Field::Number,
     is_pending: Field::Number,
     birthday: Field::DateTime,
@@ -30,7 +30,7 @@ class DoctorDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = %i[id email first_name last_name].freeze
+  COLLECTION_ATTRIBUTES = %i[id email first_name last_name is_active].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
