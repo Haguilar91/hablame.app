@@ -30,10 +30,12 @@ class Doctor < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
-  has_person_name
+         has_person_name
+  validates :first_name, presence: true
   acts_as_messageable
   has_many :notes
-
+  #has_one_attached :curriculum_path
+  mount_uploader :curriculum_path, CurriculumUploader
   def mailboxer_email(object)
     if object.class == Mailboxer::Notification
       return nil

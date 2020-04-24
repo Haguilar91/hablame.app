@@ -21,11 +21,11 @@
                 <br>
                 
                 <div class="form-inputs">
-                <%= f.input :name , 
-                required: true,
-                label: 'Nombre Completo', 
-                autofocus: true,
-                input_html: { autocomplete: "Name" }%>
+                <%= f.input :name, 
+                        required: true,
+                        label: 'Nombre Completo', 
+                        autofocus: true,
+                        input_html: { autocomplete: "name" }%>
 
                   <%= f.input :email,
                           required: true,
@@ -53,16 +53,21 @@
                           autofocus: true,
                           input_html: { autocomplete: "college" }%>
 
-                  <%= f.input :curriculum_path,
+                  <%= f.file_field :curriculum_path,
                           label: 'Favor subir su Hoja de Vida en PDF',
                           required: true,
                           autofocus: true,
                           input_html: { autocomplete: "college" }%>
+                          <label>
+                          <%= f.check_box :remove_curriculum_path %>
+                                Quitar Curriculum    
+                          </label>
 
 
                   <%= f.input :collegiate_id,
                           label: 'Introduzca su número de colegiación del Colegio de psicólogos de Honduras',
                           autofocus: true,
+                          required: true,
                           input_html: { autocomplete: "college_id" }%>
 
 

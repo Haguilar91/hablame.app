@@ -10,264 +10,280 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_171457) do
-  create_table 'action_text_rich_texts',
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'name', null: false
-    t.text 'body', size: :long
-    t.string 'record_type', null: false
-    t.bigint 'record_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index %w[record_type record_id name],
-            name: 'index_action_text_rich_texts_uniqueness', unique: true
+ActiveRecord::Schema.define(version: 2020_03_30_195038) do
+
+  create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body", size: :long
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
-  create_table 'active_storage_attachments',
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'name', null: false
-    t.string 'record_type', null: false
-    t.bigint 'record_id', null: false
-    t.bigint 'blob_id', null: false
-    t.datetime 'created_at', null: false
-    t.index %w[blob_id], name: 'index_active_storage_attachments_on_blob_id'
-    t.index %w[record_type record_id name blob_id],
-            name: 'index_active_storage_attachments_uniqueness', unique: true
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table 'active_storage_blobs',
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'key', null: false
-    t.string 'filename', null: false
-    t.string 'content_type'
-    t.text 'metadata'
-    t.bigint 'byte_size', null: false
-    t.string 'checksum', null: false
-    t.datetime 'created_at', null: false
-    t.index %w[key], name: 'index_active_storage_blobs_on_key', unique: true
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table 'announcements',
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.datetime 'published_at'
-    t.string 'announcement_type'
-    t.string 'name'
-    t.text 'description'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.datetime "published_at"
+    t.string "announcement_type"
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'doctors',
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.string 'first_name', null: false
-    t.string 'last_name', null: false
-    t.string 'curriculum_path'
-    t.string 'college'
-    t.string 'collegiate_id'
-    t.integer 'is_active'
-    t.integer 'is_approved'
-    t.integer 'is_pending'
-    t.date 'birthday'
-    t.text 'description'
-    t.index %w[email], name: 'index_doctors_on_email', unique: true
-    t.index %w[reset_password_token],
-            name: 'index_doctors_on_reset_password_token', unique: true
+  create_table "average_caches", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "rater_id"
+    t.string "rateable_type"
+    t.integer "rateable_id"
+    t.float "avg", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table 'friendly_id_slugs',
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'slug', null: false
-    t.integer 'sluggable_id', null: false
-    t.string 'sluggable_type', limit: 50
-    t.string 'scope'
-    t.datetime 'created_at'
-    t.index %w[slug sluggable_type scope],
-            name:
-              'index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope',
-            unique: true,
-            length: { slug: 70, scope: 70 }
-    t.index %w[slug sluggable_type],
-            name: 'index_friendly_id_slugs_on_slug_and_sluggable_type',
-            length: { slug: 140 }
-    t.index %w[sluggable_type sluggable_id],
-            name: 'index_friendly_id_slugs_on_sluggable_type_and_sluggable_id'
+  create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "room_id"
+    t.string "user_id"
   end
 
-  create_table 'mailboxer_conversation_opt_outs',
-               id: :integer,
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'unsubscriber_type'
-    t.integer 'unsubscriber_id'
-    t.integer 'conversation_id'
-    t.index %w[conversation_id],
-            name: 'index_mailboxer_conversation_opt_outs_on_conversation_id'
-    t.index %w[unsubscriber_id unsubscriber_type],
-            name:
-              'index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type'
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.integer "braintree_customer_id"
+    t.datetime "last_visit"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'mailboxer_conversations',
-               id: :integer,
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'subject', default: ''
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "doctors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "curriculum_path"
+    t.string "college"
+    t.string "collegiate_id"
+    t.integer "is_active"
+    t.integer "is_approved"
+    t.integer "is_pending"
+    t.date "birthday"
+    t.text "description"
+    t.float "price", limit: 53
+    t.integer "braintree_customer_id"
+    t.index ["email"], name: "index_doctors_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true
   end
 
-  create_table 'mailboxer_notifications',
-               id: :integer,
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'type'
-    t.text 'body'
-    t.string 'subject', default: ''
-    t.string 'sender_type'
-    t.integer 'sender_id'
-    t.integer 'conversation_id'
-    t.boolean 'draft', default: false
-    t.string 'notification_code'
-    t.string 'notified_object_type'
-    t.integer 'notified_object_id'
-    t.string 'attachment'
-    t.datetime 'updated_at', null: false
-    t.datetime 'created_at', null: false
-    t.boolean 'global', default: false
-    t.datetime 'expires'
-    t.index %w[conversation_id],
-            name: 'index_mailboxer_notifications_on_conversation_id'
-    t.index %w[notified_object_id notified_object_type],
-            name: 'index_mailboxer_notifications_on_notified_object_id_and_type'
-    t.index %w[notified_object_type notified_object_id],
-            name: 'mailboxer_notifications_notified_object'
-    t.index %w[sender_id sender_type],
-            name: 'index_mailboxer_notifications_on_sender_id_and_sender_type'
-    t.index %w[type], name: 'index_mailboxer_notifications_on_type'
+  create_table "friendly_id_slugs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, length: { slug: 70, scope: 70 }
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", length: { slug: 140 }
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table 'mailboxer_receipts',
-               id: :integer,
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'receiver_type'
-    t.integer 'receiver_id'
-    t.integer 'notification_id', null: false
-    t.boolean 'is_read', default: false
-    t.boolean 'trashed', default: false
-    t.boolean 'deleted', default: false
-    t.string 'mailbox_type', limit: 25
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.boolean 'is_delivered', default: false
-    t.string 'delivery_method'
-    t.string 'message_id'
-    t.index %w[notification_id],
-            name: 'index_mailboxer_receipts_on_notification_id'
-    t.index %w[receiver_id receiver_type],
-            name: 'index_mailboxer_receipts_on_receiver_id_and_receiver_type'
+  create_table "mailboxer_conversation_opt_outs", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "unsubscriber_type"
+    t.integer "unsubscriber_id"
+    t.integer "conversation_id"
+    t.index ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id"
+    t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type"
   end
 
-  create_table 'notes',
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'title'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.integer 'user_id'
-    t.integer 'doctor_id'
+  create_table "mailboxer_conversations", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "subject", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'notifications',
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.bigint 'recipient_id'
-    t.bigint 'actor_id'
-    t.datetime 'read_at'
-    t.string 'action'
-    t.bigint 'notifiable_id'
-    t.string 'notifiable_type'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "mailboxer_notifications", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "type"
+    t.text "body"
+    t.string "subject", default: ""
+    t.string "sender_type"
+    t.integer "sender_id"
+    t.integer "conversation_id"
+    t.boolean "draft", default: false
+    t.string "notification_code"
+    t.string "notified_object_type"
+    t.integer "notified_object_id"
+    t.string "attachment"
+    t.datetime "updated_at", null: false
+    t.datetime "created_at", null: false
+    t.boolean "global", default: false
+    t.datetime "expires"
+    t.index ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id"
+    t.index ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type"
+    t.index ["notified_object_type", "notified_object_id"], name: "mailboxer_notifications_notified_object"
+    t.index ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type"
+    t.index ["type"], name: "index_mailboxer_notifications_on_type"
   end
 
-  create_table 'psychologists',
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'first_name'
-    t.string 'last_name'
-    t.integer 'status'
-    t.string 'collegiate_id'
-    t.string 'college'
-    t.text 'description'
-    t.string 'curriculum'
-    t.string 'photo'
-    t.integer 'is_approved'
-    t.integer 'is_active'
-    t.string 'tags'
-    t.string 'office_address'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "mailboxer_receipts", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "receiver_type"
+    t.integer "receiver_id"
+    t.integer "notification_id", null: false
+    t.boolean "is_read", default: false
+    t.boolean "trashed", default: false
+    t.boolean "deleted", default: false
+    t.string "mailbox_type", limit: 25
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "is_delivered", default: false
+    t.string "delivery_method"
+    t.string "message_id"
+    t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
+    t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
   end
 
-  create_table 'services',
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.bigint 'user_id', null: false
-    t.string 'provider'
-    t.string 'uid'
-    t.string 'access_token'
-    t.string 'access_token_secret'
-    t.string 'refresh_token'
-    t.datetime 'expires_at'
-    t.text 'auth'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index %w[user_id], name: 'index_services_on_user_id'
+  create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "doctor_id"
   end
 
-  create_table 'users',
-               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4',
-               force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.string 'first_name'
-    t.string 'last_name'
-    t.datetime 'announcements_last_read_at'
-    t.boolean 'admin', default: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.string 'username', null: false
-    t.integer 'age'
-    t.text 'issue'
-    t.index %w[email], name: 'index_users_on_email', unique: true
-    t.index %w[reset_password_token],
-            name: 'index_users_on_reset_password_token', unique: true
-    t.index %w[username], name: 'index_users_on_username', unique: true
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "recipient_id"
+    t.bigint "actor_id"
+    t.datetime "read_at"
+    t.string "action"
+    t.bigint "notifiable_id"
+    t.string "notifiable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key 'mailboxer_notifications',
-                  'mailboxer_conversations',
-                  column: 'conversation_id',
-                  name: 'notifications_on_conversation_id'
-  add_foreign_key 'mailboxer_receipts',
-                  'mailboxer_notifications',
-                  column: 'notification_id', name: 'receipts_on_notification_id'
-  add_foreign_key 'services', 'users'
+  create_table "overall_averages", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "rateable_type"
+    t.integer "rateable_id"
+    t.float "overall_avg", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "psychologists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "status"
+    t.string "collegiate_id"
+    t.string "college"
+    t.text "description"
+    t.string "curriculum"
+    t.string "photo"
+    t.integer "is_approved"
+    t.integer "is_active"
+    t.string "tags"
+    t.string "office_address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rates", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "rater_id"
+    t.string "rateable_type"
+    t.integer "rateable_id"
+    t.float "stars", null: false
+    t.string "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type"
+    t.index ["rater_id"], name: "index_rates_on_rater_id"
+  end
+
+  create_table "rating_caches", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "cacheable_type"
+    t.integer "cacheable_id"
+    t.float "avg", null: false
+    t.integer "qty", null: false
+    t.string "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "doctor_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "services", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "access_token"
+    t.string "access_token_secret"
+    t.string "refresh_token"
+    t.datetime "expires_at"
+    t.text "auth"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_services_on_user_id"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "announcements_last_read_at"
+    t.boolean "admin", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "username", null: false
+    t.integer "age"
+    t.text "issue"
+    t.integer "braintree_customer_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
+  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
+  add_foreign_key "services", "users"
 end

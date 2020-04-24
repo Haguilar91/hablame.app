@@ -8,16 +8,20 @@ gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.12'
 gem 'trix'
+gem 'administrate-field-carrierwave'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+#gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'gravatarify', '~> 3.0.0'
 gem 'jbuilder', '~> 2.7'
 gem "braintree", "~> 2.101.0"
+gem "fog-aws"
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -25,9 +29,11 @@ gem "braintree", "~> 2.101.0"
 gem 'sassc', '~> 2.1'
 gem 'simple_form'
 gem 'serviceworker-rails'
+gem "aws-sdk-s3", require: false
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem  'figaro'
+gem 'carrierwave'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'mailboxer', github: 'mailboxer/mailboxer'
@@ -73,7 +79,7 @@ gem 'font-awesome-sass', '~> 5.11.2'
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
 gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 gem 'mini_magick', '~> 4.9', '>= 4.9.2'
-gem 'name_of_person', '~> 1.1'
+gem 'name_of_person'
 gem 'omniauth-facebook', '~> 5.0'
 gem 'omniauth-github', '~> 1.3'
 gem 'omniauth-twitter', '~> 1.4'

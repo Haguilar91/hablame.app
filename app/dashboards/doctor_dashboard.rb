@@ -14,7 +14,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     first_name: Field::String,
     last_name: Field::String,
-    curriculum_path: Field::String,
+    curriculum_path: GetCurriculumField,
     password: Field::String,
     college: Field::String,
     collegiate_id: Field::String,
