@@ -239,7 +239,9 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.1009)
-    mimemagic (0.3.4)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
@@ -284,7 +286,7 @@ GEM
     popper_js (1.16.0)
     prettier (0.18.1)
     public_suffix (4.0.4)
-    puma (3.12.4)
+    puma (3.12.6)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.9)
@@ -418,9 +420,6 @@ GEM
     tilt (2.0.10)
     trix (0.10.1)
       rails
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     tzinfo-data (1.2019.3)
@@ -503,7 +502,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   trix
-  turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
