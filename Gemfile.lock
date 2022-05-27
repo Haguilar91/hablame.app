@@ -292,7 +292,7 @@ GEM
     pundit (2.1.0)
       activesupport (>= 3.0.0)
     racc (1.5.2)
-    rack (2.0.9)
+    rack (2.0.9.1)
     rack-cache (1.11.1)
       rack (>= 0.4)
     rack-protection (2.0.8.1)
